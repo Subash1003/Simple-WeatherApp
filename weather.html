@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./weather.css">
+</head>
+
+<body>
+ 
+
+    <div class="container">
+
+        <div class="bar">
+            <input id="input" type="text" placeholder="Enter the city name" spellcheck="false">
+
+            <i id="search-btn" class="fa-solid fa-magnifying-glass" style="color: rgb(117, 113, 113);"></i>
+        </div>
+
+        <div class="img">
+            <img src="./weather_img.png" alt="weather" height="120px">
+        </div>
+        <div class="weather">
+            <h1 id="temp">°C</h1>
+        </div>
+
+        <h1 id="cityname"></h1>
+
+        <h3 id="location"></h3>
+
+        <div class="info">
+            <p id="humidity">--%</p>
+            <p id="wind">-- km/h </p>
+        </div>
+        <div class="bottom">
+            <h4>Humidity</h4>
+            <h4>Wind Speed</h4>
+        </div>
+    </div>
+
+    <script src="./weather.js"></script>
+</body>
+
+</html>
