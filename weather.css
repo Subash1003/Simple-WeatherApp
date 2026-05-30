@@ -13,13 +13,6 @@ body{
     position: relative;
 }
 
-body{
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 0.8s ease;
-}
 
 #bg-video {
   position: fixed;
@@ -31,11 +24,12 @@ body{
   height: auto;
   z-index: -1; 
   object-fit: cover; 
+
   
 }
 
 .container{
-    border: 1px solid rgb(117, 121, 123);
+    border: 2px solid rgba(94, 97, 98, 0.447);
     border-radius: 15px;
     background:transparent;
     backdrop-filter: blur(20px);
@@ -109,7 +103,7 @@ h3{
     flex-direction: row;
     justify-content: space-between;
     color: white;
-    padding-top:10px;
+    padding-top:5px;
     font-weight: 500;
     font-size: x-large;
     padding-left: 20px;
