@@ -13,56 +13,55 @@ const wind= document.getElementById("wind");
 
 city.innerText="Weather";
 
+
 function updateWeatherImage(condition){
 
     switch(condition){
 
-        case "01d":
+        case "Clear":
             weatherIcon.src = "./images/clear.svg";
             break;
 
-        case "04d":
+        case "Haze":
             weatherIcon.src = "./images/haze.svg";
             break;
 
-        case "02d":
-        case "03d":
+        case "Mist":
             weatherIcon.src = "./images/mist.svg";
             break;
 
-        case "04d":
-        case "04n":
+        case "Clouds":
             weatherIcon.src = "./images/overcast.svg";
             break;
 
-        case "10d":
-        case "09d":
+        case "Rain":
+        case "Drizzle":
             weatherIcon.src = "./images/rain.svg";
             break;
 
-        case "11d":
-        case "11n":
+        case "Thunderstrom":
             weatherIcon.src = "./images/thunder.svg";
             break;
             
-            case "13d":
-            case "13n":
+            case "Snow":
              weatherIcon.src = "./images/snow.svg";
             break;
                 
-            case "50d":
-            case "50n":
+            case "Smoke":
             weatherIcon.src = "./images/smoke.svg";
             break;
 
-        case "50d":
-        case "50n":
+        case "Mist":
             weatherIcon.src = "./images/haze.svg";
             break;
 
         default:
             weatherIcon.src = "./images/clear.svg";
     }
+}
+
+function getCountryName(countryCode) {
+    return new Intl.DisplayNames(['en'], { type: 'region' }).of(countryCode);
 }
 
 async function checkWeather(queryCity) {
@@ -76,13 +75,33 @@ async function checkWeather(queryCity) {
         const data = await response.json();
         console.log(data);
 
+        const currentTime = data.dt;
+        const sunrise = data.sys.sunrise;
+        const sunset = data.sys.sunset;
+        const isNight = currentTime < sunrise || currentTime > sunset;
+        console.log("Night Time:", isNight);
+
         temperature.innerHTML = Math.round(data.main.temp) + "°C";
         city.innerHTML = data.name+", ";
-        country.innerHTML= data.sys.country;
+        country.innerHTML = getCountryName(data.sys.country);      
         weathercondition.innerHTML = data.weather[0].description;
-        updateWeatherImage(data.weather[0].icon);
         humidity.innerHTML = data.main.humidity + " %";
         wind.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
+
+        if(data.weather[0].main === "Clear"){
+
+        if(isNight){
+            weatherIcon.src = "./images/clear-night.svg";
+        }
+        else{
+            weatherIcon.src = "./images/clear.svg";
+        }
+
+        }
+        else{
+            updateWeatherImage(data.weather[0].main);
+        }
+
      } catch (err) {
         console.error(err);
         temperature.innerHTML = "--";
@@ -110,4 +129,4 @@ clear.addEventListener("click",() =>{
     input.value="";
 })
 
-checkWeather("delhi");
+checkWeather("coimbatore");

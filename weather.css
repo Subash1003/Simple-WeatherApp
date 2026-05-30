@@ -14,17 +14,30 @@ body{
 }
 
 body{
-    background-image: url("./images/photo.avif");
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: background-image 0.8s ease;
 }
 
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1; 
+  object-fit: cover; 
+  
+}
+
 .container{
-    border: 1px solid skyblue;
+    border: 1px solid rgb(117, 121, 123);
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.101);
+    background:transparent;
     backdrop-filter: blur(20px);
     width: 90%;
     max-width: 350px;
@@ -54,7 +67,7 @@ body{
 #clear{
     color: rgb(167, 163, 163);
     position: absolute;
-    left:68%;
+    left:70%;
     cursor: pointer;
 }
 .bar i{
