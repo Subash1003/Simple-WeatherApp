@@ -10,34 +10,52 @@ body{
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    background-image: url(./photo.avif);
     position: relative;
 }
 
-.container{
-    border: 1px solid lightgray;
-    border-radius: 15px;
-    border-color: skyblue;
-    background: transparent;
-    backdrop-filter: blur(10px);   
-     height:auto;
-    width: 320px;
-    padding: 10px;
-    text-align: center;
-    z-index: 10;
-    position: relative;
+body{
+    background-image: url("./images/photo.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease;
+}
 
+.container{
+    border: 1px solid skyblue;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.101);
+    backdrop-filter: blur(20px);
+    width: 90%;
+    max-width: 350px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    
 }
 .bar{
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 8px;
     margin-top: 1rem;
 }
+
 .bar input{
-    width: 15rem;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
     border-radius: 20px;
-    border-color: transparent;
+    border: none;
+    outline: none;
     text-indent: 1rem;
+}
+#clear{
+    color: rgb(167, 163, 163);
+    position: absolute;
+    left:68%;
+    cursor: pointer;
 }
 .bar i{
     border: 1px solid lightgrey;
@@ -52,24 +70,33 @@ body{
 h1,h3{
     color: white;
 }
-.img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 15px;
+h3{
+    margin-top: 5px;
+}
+.img img{
+    width: 100%;
+    max-width: 120px;
+    height: auto;
 }
     
 .weather{
+    padding-top: 10px;
     font-style: normal;
     font-size: x-large;
     font-weight:600;
+}
+.smallicon{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 0 15px;
 }
 .info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     color: white;
-    padding-top:40px;
+    padding-top:10px;
     font-weight: 500;
     font-size: x-large;
     padding-left: 20px;
@@ -79,10 +106,58 @@ h1,h3{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: white;
+    color: rgb(241, 239, 239);
     padding-top:10px;
      padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     
+}
+
+@media (max-width: 768px){
+
+    .container{
+        width: 85%;
+        max-width: 320px;
+    }
+
+    .weather{
+        font-size: 1.5rem;
+    }
+
+    .info{
+        font-size: 1rem;
+        padding-top: 25px;
+    }
+
+    .bottom{
+        font-size: 0.9rem;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+
+    h3{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px){
+
+    .container{
+        width: 90%;
+    }
+
+    .weather{
+        font-size: 1.3rem;
+    }
+
+    .info{
+        font-size: 0.9rem;
+    }
+
+    .bottom{
+        font-size: 0.8rem;
+    }
 }

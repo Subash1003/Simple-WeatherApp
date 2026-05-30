@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <link rel="icon" href="./favicon.png">
+    <link rel="icon" href="./images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,26 +13,30 @@
 </head>
 
 <body>
- 
 
     <div class="container">
 
         <div class="bar">
+            <p id="clear">x</p>
             <input id="input" type="text" placeholder="Enter the city name" spellcheck="false">
 
             <i id="search-btn" class="fa-solid fa-magnifying-glass" style="color: rgb(117, 113, 113);"></i>
         </div>
 
         <div class="img">
-            <img src="./weather_img.png" alt="weather" height="120px">
+            <img id="weather-icon" src="./images/clear.svg" alt="weather" height="150px">
         </div>
+        <h3 id="weathercondition"></h3>
         <div class="weather">
             <h1 id="temp">°C</h1>
         </div>
 
         <h1 id="cityname"></h1>
-
-        <h3 id="location"></h3>
+        <h3 id="country"></h3>
+        <div class="smallicon">
+            <img src="./images/water-solid (1).png" alt="humidity" height="30px" width="40px">
+            <img src="./images/wind.svg" alt="humidity" height="50px" width="70px">
+        </div>
 
         <div class="info">
             <p id="humidity">--%</p>
