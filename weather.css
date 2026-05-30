@@ -59,9 +59,9 @@ body{
     text-indent: 1rem;
 }
 #clear{
-    color: rgb(167, 163, 163);
+    color: rgb(139, 137, 137);
     position: absolute;
-    left:70%;
+    left:69%;
     cursor: pointer;
 }
 .bar i{
@@ -96,14 +96,15 @@ h3{
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    padding: 0 15px;
+    padding-left: 25px;
+    padding-right: 30px;
 }
 .info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     color: white;
-    padding-top:5px;
+    padding-top:10px;
     font-weight: 500;
     font-size: x-large;
     padding-left: 20px;
