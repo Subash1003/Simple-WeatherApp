@@ -22,6 +22,7 @@ A simple and responsive Weather Application built using HTML, CSS, and JavaScrip
 --- 
 
 ## 📂 Project Structure
+```bash
 weather-app/
 │
 ├── weather.html
@@ -31,6 +32,7 @@ weather-app/
 │   └── weather-icon.png
 └── README.md
 🔑 API Used
+```
 
 This project uses the OpenWeather API.
 
