@@ -1,21 +1,27 @@
-🌦 Weather App
+## 🌦 Weather App
 
 A simple and responsive Weather Application built using HTML, CSS, and JavaScript that fetches real-time weather data using the OpenWeather API.
+--- 
 
-🚀 Features
-🔍 Search weather by city name
-🌡 Displays current temperature
-💧 Displays humidity
-🌬 Displays wind speed
-🌍 Displays city and country name
-📱 Responsive and clean UI
-⚡ Real-time weather data using OpenWeather API
-🛠 Technologies Used
-HTML5
-CSS3
-JavaScript (ES6)
-OpenWeather API
-📂 Project Structure
+## 🚀 Features
+* 🔍 Search weather by city name
+* 🌡 Displays current temperature
+* 💧 Displays humidity
+* 🌬 Displays wind speed
+* 🌍 Displays city and country name
+* 📱 Responsive and clean UI
+* ⚡ Real-time weather data using OpenWeather API
+
+---
+
+## 🛠 Technologies Used
+* HTML5
+* CSS3
+* JavaScript (ES6)
+* OpenWeather API
+--- 
+
+## 📂 Project Structure
 weather-app/
 │
 ├── weather.html
@@ -32,7 +38,7 @@ Get your free API key from:
 
 OpenWeather API
 
-⚙️ How to Run the Project
+## ⚙️ How to Run the Project
 1️⃣ Clone the Repository
 git clone https://github.com/your-username/weather-app.git
 2️⃣ Open the Project
