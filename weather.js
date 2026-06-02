@@ -85,23 +85,28 @@ async function checkWeather(queryCity) {
         wind.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
        
         if(data.weather[0].main ==="Clear"){
-            video.src= "./images/background-video-Clear.mp4"
-        }
-        else if(data.weather[0].main ==="Cloud"){
-            video.src= "./images/background-video-Cloud.mp4"
+            video.src= isNight
+            ?"./videos/background-video-Clear-Night.mp4"
+            :"./videos/background-video-Clear.mp4"
         }
         else if(data.weather[0].main ==="Clouds"){
-            video.src= "./images/background-video-Cloud.mp4"
+            video.src= isNight
+            ? "./videos/background-video-Smoke.mp4"
+            : "./videos/background-video-Cloud.mp4"
         }
         else if(data.weather[0].main ==="Rain"){
-            video.src= "./images/background-video-Rain.mp4"
+            video.src= "./videos/background-video-Rain.mp4"
         }
         else if(data.weather[0].main ==="Smoke"){
-            video.src= "./images/background-video-Smoke.mp4"
+            video.src= "./videos/background-video-Smoke.mp4"
         }
-        else if(data.weather[0].main ==="Haze"){
-            video.src= "./images/background-video-Smoke.mp4"
+        else if(data.weather[0].main ==="Haze" || data.weather[0].main ==="Mist" ){
+            video.src= "./videos/background-video-Smoke.mp4"
         }
+        else if(data.weather[0].main ==="Snow"){
+            video.src= "./videos/background-video-Snow.mp4"
+        }
+
 
         if (data.weather[0].main === "Clear") {
 
