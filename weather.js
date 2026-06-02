@@ -1,5 +1,5 @@
 const apiKey = "1273ff9ff3241685d06f129d50e71db1";
-
+const video= document.getElementById("bg-video")
 const input = document.getElementById("input");
 const clear = document.getElementById("clear");
 const searchBtn = document.getElementById("search-btn");
@@ -83,6 +83,25 @@ async function checkWeather(queryCity) {
         weathercondition.innerHTML = data.weather[0].description;
         humidity.innerHTML = data.main.humidity + " %";
         wind.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
+       
+        if(data.weather[0].main ==="Clear"){
+            video.src= "./images/background-video-Clear.mp4"
+        }
+        else if(data.weather[0].main ==="Cloud"){
+            video.src= "./images/background-video-Cloud.mp4"
+        }
+        else if(data.weather[0].main ==="Clouds"){
+            video.src= "./images/background-video-Cloud.mp4"
+        }
+        else if(data.weather[0].main ==="Rain"){
+            video.src= "./images/background-video-Rain.mp4"
+        }
+        else if(data.weather[0].main ==="Smoke"){
+            video.src= "./images/background-video-Smoke.mp4"
+        }
+        else if(data.weather[0].main ==="Haze"){
+            video.src= "./images/background-video-Smoke.mp4"
+        }
 
         if (data.weather[0].main === "Clear") {
 
