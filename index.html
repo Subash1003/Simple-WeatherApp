@@ -14,11 +14,15 @@
 
 <body>
 
-    <video autoplay muted loop playsinline preload="auto" id="bg-video" onplay="this.playbackRate = 1.0;">
-    <source src="./videos/background-video-Clear.mp4" type="video/mp4">
-</video>
-
+    
     <div class="container">
+        
+        <div class="video-container">
+            <video autoplay loop playsinline preload="auto" id="bg-video" onplay="this.playbackRate = 1.0;">
+            <source src="./videos/background-video-Clear.mp4" type="video/mp4">
+        </video>
+
+        </div>
 
         <div class="bar">
             <p id="clear">x</p>
@@ -30,6 +34,7 @@
         <div class="img">
             <img id="weather-icon" src="./images/clear.svg" alt="weather" height="150px">
         </div>
+        <h3 id="time-status"></h3>
         <h3 id="weathercondition"></h3>
         <div class="weather">
             <h1 id="temp">°C</h1>
@@ -50,7 +55,20 @@
             <h4>Humidity</h4>
             <h4>Wind Speed</h4>
         </div>
+
+        <div class="sun-times">
+        <div>
+            <p>Sunrise</p>
+            <span id="sunrise-time">--:--</span>
+        </div>
+    
+        <div>
+            <p>Sunset</p>
+            <span id="sunset-time">--:--</span>
+        </div>
     </div>
+    </div>
+
 
     <script src="./weather.js"></script>
 </body>

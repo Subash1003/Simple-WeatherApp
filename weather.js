@@ -1,5 +1,7 @@
 const apiKey = "1273ff9ff3241685d06f129d50e71db1";
-const video= document.getElementById("bg-video")
+
+const video = document.getElementById("bg-video")
+
 const input = document.getElementById("input");
 const clear = document.getElementById("clear");
 const searchBtn = document.getElementById("search-btn");
@@ -10,6 +12,10 @@ const country = document.getElementById("country");
 const weathercondition = document.getElementById("weathercondition");
 const humidity = document.getElementById("humidity");
 const wind = document.getElementById("wind");
+
+const timeStatus = document.getElementById("time-status");
+const sunriseTimeEl = document.getElementById("sunrise-time");
+const sunsetTimeEl = document.getElementById("sunset-time");
 
 city.innerText = "Weather";
 
@@ -60,6 +66,19 @@ function getCountryName(countryCode) {
     return new Intl.DisplayNames(['en'], { type: 'region' }).of(countryCode);
 }
 
+
+function formatTime(unixTime, timezoneOffset) {
+
+    const date = new Date((unixTime + timezoneOffset) * 1000);
+
+    return date.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+        timeZone: "UTC"
+    });
+}
+
 async function checkWeather(queryCity) {
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(queryCity)}&appid=${apiKey}&units=metric`;
@@ -74,6 +93,7 @@ async function checkWeather(queryCity) {
         const currentTime = data.dt;
         const sunrise = data.sys.sunrise;
         const sunset = data.sys.sunset;
+        const timezoneOffset = data.timezone;
         const isNight = currentTime < sunrise || currentTime > sunset;
         console.log("Night Time:", isNight);
 
@@ -83,28 +103,36 @@ async function checkWeather(queryCity) {
         weathercondition.innerHTML = data.weather[0].description;
         humidity.innerHTML = data.main.humidity + " %";
         wind.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
-       
-        if(data.weather[0].main ==="Clear"){
-            video.src= isNight
-            ?"./videos/background-video-Clear-Night.mp4"
-            :"./videos/background-video-Clear.mp4"
+
+       timeStatus.innerHTML =
+         `${isNight ? "🌙 Night" : "🌞 Day"} | ${formatTime(currentTime, timezoneOffset)}`;
+
+        sunriseTimeEl.innerHTML = formatTime(sunrise, timezoneOffset);
+
+        sunsetTimeEl.innerHTML = formatTime(sunset, timezoneOffset);
+
+
+        if (data.weather[0].main === "Clear") {
+            video.src = isNight
+                ? "./videos/background-video-Clear-Night.mp4"
+                : "./videos/background-video-Clear.mp4"
         }
-        else if(data.weather[0].main ==="Clouds"){
-            video.src= isNight
-            ? "./videos/background-video-Smoke.mp4"
-            : "./videos/background-video-Cloud.mp4"
+        else if (data.weather[0].main === "Clouds") {
+            video.src = isNight
+                ? "./videos/background-video-Smoke.mp4"
+                : "./videos/background-video-Cloud.mp4"
         }
-        else if(data.weather[0].main ==="Rain"){
-            video.src= "./videos/background-video-Rain.mp4"
+        else if (data.weather[0].main === "Rain") {
+            video.src = "./videos/background-video-Rain.mp4"
         }
-        else if(data.weather[0].main ==="Smoke"){
-            video.src= "./videos/background-video-Smoke.mp4"
+        else if (data.weather[0].main === "Smoke") {
+            video.src = "./videos/background-video-Smoke.mp4"
         }
-        else if(data.weather[0].main ==="Haze" || data.weather[0].main ==="Mist" ){
-            video.src= "./videos/background-video-Smoke.mp4"
+        else if (data.weather[0].main === "Haze" || data.weather[0].main === "Mist") {
+            video.src = "./videos/background-video-Smoke.mp4"
         }
-        else if(data.weather[0].main ==="Snow"){
-            video.src= "./videos/background-video-Snow.mp4"
+        else if (data.weather[0].main === "Snow") {
+            video.src = "./videos/background-video-Snow.mp4"
         }
 
 
@@ -118,7 +146,7 @@ async function checkWeather(queryCity) {
         else if (data.weather[0].main === "Clouds") {
 
             weatherIcon.src = isNight
-                ? "./images/overcast.svg"
+                ? "./images/overcast-night.svg"
                 : "./images/few-clouds.svg";
 
         }
@@ -130,11 +158,14 @@ async function checkWeather(queryCity) {
 
     } catch (err) {
         console.error(err);
-        temperature.innerHTML = "--";
-        city.innerHTML = "City not found";
+        temperature.innerHTML = "";
+        city.innerHTML = "please enter the city ";
         country.innerHTML = ""
-        humidity.innerHTML = "--%";
-        wind.innerHTML = "-- km/hr";
+        humidity.innerHTML = "";
+        wind.innerHTML = "";
+        timeStatus.innerHTML=""
+        sunriseTimeEl.innerHTML = "";
+        sunsetTimeEl.innerHTML = "";
     }
 }
 
