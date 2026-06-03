@@ -90,7 +90,7 @@ async function checkWeather(queryCity) {
         const data = await response.json();
         console.log(data);
 
-        const currentTime = data.dt;
+        const currentTime = Math.floor(Date.now() / 1000);
         const sunrise = data.sys.sunrise;
         const sunset = data.sys.sunset;
         const timezoneOffset = data.timezone;
