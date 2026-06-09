@@ -11,7 +11,7 @@ body{
     min-height: 100vh;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);}
+    background: linear-gradient(120deg, #060606 0%, #1f1f20 100%);}
 
 
 .video-container{
@@ -211,45 +211,20 @@ h3{
 
 @media (max-width: 480px){
 
-    body{
-        padding: 0;
-        margin: 0;
-    }
-
     .container{
-        width: 100vw;
-        height: 100vh;
-        max-width: none;
-        border-radius: 0;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .video-container{
-        border-radius: 0;
+        width: 90%;
     }
 
     .weather{
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .info{
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .bottom{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
-@media (max-width: 480px){
-
-    .container{
-        width: 100vw;
-        min-height: 100dvh;
-        max-width: none;
-        border-radius: 0;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-}
